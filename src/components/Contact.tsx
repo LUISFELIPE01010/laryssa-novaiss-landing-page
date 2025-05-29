@@ -34,7 +34,7 @@ const Contact = () => {
                   className="flex items-center gap-4 p-4 rounded-2xl bg-rose-dark/10 hover:bg-rose-dark/20 transition-colors group"
                   aria-label="Entrar em contato via WhatsApp"
                 >
-                  <div className="w-12 h-12 bg-rose-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform" style={{backgroundColor: '#B8817A'}}>
                     <MessageCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
