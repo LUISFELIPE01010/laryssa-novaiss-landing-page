@@ -1,12 +1,8 @@
-
 import { MessageCircle, Instagram, MapPin, Clock, Phone, Heart } from 'lucide-react';
-
 const Contact = () => {
   const whatsappUrl = "https://wa.me/5513996631392";
   const instagramUrl = "https://instagram.com/laryssanutri";
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-rose-light/20 to-rose-accent/10">
+  return <section className="py-20 bg-gradient-to-br from-rose-light/20 to-rose-accent/10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
@@ -27,14 +23,10 @@ const Contact = () => {
               </h3>
               
               <div className="space-y-6">
-                <a 
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-rose-dark/10 hover:bg-rose-dark/20 transition-colors group"
-                  aria-label="Entrar em contato via WhatsApp"
-                >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform" style={{backgroundColor: '#B8817A'}}>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl bg-rose-dark/10 hover:bg-rose-dark/20 transition-colors group" aria-label="Entrar em contato via WhatsApp">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform" style={{
+                  backgroundColor: '#B8817A'
+                }}>
                     <MessageCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -43,13 +35,7 @@ const Contact = () => {
                   </div>
                 </a>
                 
-                <a 
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-rose-light/30 hover:bg-rose-light/50 transition-colors group"
-                  aria-label="Seguir no Instagram"
-                >
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl bg-rose-light/30 hover:bg-rose-light/50 transition-colors group" aria-label="Seguir no Instagram">
                   <div className="w-12 h-12 bg-rose-burnt rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Instagram className="w-6 h-6 text-white" />
                   </div>
@@ -59,11 +45,7 @@ const Contact = () => {
                   </div>
                 </a>
                 
-                <a 
-                  href="tel:+5513996631392"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-nude-soft hover:bg-rose-light/30 transition-colors group"
-                  aria-label="Ligar para Laryssa Novais"
-                >
+                <a href="tel:+5513996631392" className="flex items-center gap-4 p-4 rounded-2xl bg-nude-soft hover:bg-rose-light/30 transition-colors group" aria-label="Ligar para Laryssa Novais">
                   <div className="w-12 h-12 bg-rose-burnt rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
@@ -111,12 +93,7 @@ const Contact = () => {
           <div className="animate-on-scroll">
             <div className="bg-gradient-to-br from-rose-burnt to-rose-dark rounded-3xl p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                <img 
-                  src="/lovable-uploads/e560b74b-115f-4e8c-a164-eb09e1b1c353.png"
-                  alt=""
-                  className="w-full h-full object-cover rounded-full"
-                  loading="lazy"
-                />
+                
               </div>
               
               <div className="relative z-10 text-center">
@@ -128,13 +105,7 @@ const Contact = () => {
                   Não espere mais para cuidar de você. Vamos juntas construir uma relação leve e amorosa com a alimentação.
                 </p>
                 
-                <a 
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-white text-rose-dark px-8 py-4 rounded-full font-semibold text-lg hover-lift shadow-lg hover:shadow-xl transition-all"
-                  aria-label="Agendar consulta nutricional"
-                >
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-white text-rose-dark px-8 py-4 rounded-full font-semibold text-lg hover-lift shadow-lg hover:shadow-xl transition-all" aria-label="Agendar consulta nutricional">
                   <MessageCircle className="w-6 h-6" />
                   Agendar minha consulta
                 </a>
@@ -147,8 +118,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
