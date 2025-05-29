@@ -1,22 +1,59 @@
 
-import { Star, TrendingUp, Heart } from 'lucide-react';
+import { Star, TrendingUp, Heart, ArrowRight } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Results = () => {
-  const transformations = [
+  const beforeAfterImages = [
     {
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      alt: "Mulher saudável e confiante mostrando resultados de emagrecimento",
+      title: "Transformação Real",
+      description: "12kg perdidos em 6 meses"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1594736797933-d0c4a7d0daa3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", 
+      alt: "Mulher forte e definida mostrando ganho de massa magra",
+      title: "Corpo Forte e Definido",
+      description: "5kg de massa magra conquistados"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      alt: "Mulher radiante e energética após transformação nutricional",
+      title: "Energia e Vitalidade",
+      description: "Disposição e bem-estar recuperados"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1506629905607-c28b29b5f7d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      alt: "Mulher feliz e confiante após processo de reeducação alimentar",
+      title: "Autoestima Renovada",
+      description: "Relação saudável com a comida"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      alt: "Mulher ativa e saudável praticando exercícios",
+      title: "Vida Ativa",
+      description: "Força e resistência conquistadas"
+    }
+  ];
+
+  const testimonials = [
+    {
       quote: "Me sinto mais leve, confiante e com energia.",
       name: "Maria, 32 anos",
       result: "12kg em 6 meses"
     },
     {
-      image: "https://images.unsplash.com/photo-1594736797933-d0c4a7d0daa3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", 
       quote: "Aprendi a me alimentar sem medo, sem culpa.",
       name: "Ana, 28 anos",
       result: "Ganhou 5kg de massa magra"
     },
     {
-      image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
       quote: "Finalmente entendi que saúde não é sinônimo de restrição.",
       name: "Carla, 35 anos", 
       result: "Melhorou energia e disposição"
@@ -28,32 +65,58 @@ const Results = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
-            Resultados Reais
+            Resultados Reais que Inspiram
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-green-leaf rounded-full mx-auto mb-4"></div>
-          <p className="text-lg text-gray-rose/80 max-w-2xl mx-auto">
-            Veja como a nutrição personalizada transformou a vida dessas mulheres
+          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-rose-dark rounded-full mx-auto mb-4"></div>
+          <p className="text-lg text-gray-rose/80 max-w-3xl mx-auto">
+            Cada transformação é única e especial. Veja como a nutrição personalizada e consciente 
+            transformou a vida dessas mulheres incríveis, criando resultados duradouros e uma relação 
+            saudável com o próprio corpo.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          {transformations.map((transformation, index) => (
+
+        {/* Galeria Visual de Resultados */}
+        <div className="mb-16 animate-on-scroll">
+          <Carousel className="w-full max-w-5xl mx-auto">
+            <CarouselContent>
+              {beforeAfterImages.map((item, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="bg-white rounded-3xl p-6 shadow-lg hover-lift border border-rose-light/20 h-full">
+                    <div className="relative mb-4 overflow-hidden rounded-2xl">
+                      <img 
+                        src={item.image}
+                        alt={item.alt}
+                        className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 right-4 w-10 h-10 bg-rose-burnt rounded-full flex items-center justify-center">
+                        <TrendingUp className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl font-semibold text-gray-rose mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-rose-burnt font-medium">
+                      {item.description}
+                    </p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+
+        {/* Depoimentos em Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white rounded-3xl p-8 shadow-lg hover-lift animate-on-scroll text-center"
+              className="bg-white rounded-3xl p-8 shadow-lg hover-lift animate-on-scroll text-center border border-rose-light/20"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative mb-6">
-                <img 
-                  src={transformation.image}
-                  alt={`Transformação ${transformation.name}`}
-                  className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-rose-light/50"
-                />
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-leaf rounded-full flex items-center justify-center">
-                  <TrendingUp className="w-4 h-4 text-white" />
-                </div>
-              </div>
-              
               <div className="flex justify-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-rose-burnt fill-current" />
@@ -61,27 +124,46 @@ const Results = () => {
               </div>
               
               <blockquote className="text-gray-rose italic mb-4 text-lg">
-                "{transformation.quote}"
+                "{testimonial.quote}"
               </blockquote>
               
               <div className="border-t border-rose-light/30 pt-4">
                 <p className="font-semibold text-gray-rose mb-1">
-                  {transformation.name}
+                  {testimonial.name}
                 </p>
-                <p className="text-sm text-green-leaf font-medium">
-                  {transformation.result}
+                <p className="text-sm text-rose-burnt font-medium">
+                  {testimonial.result}
                 </p>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="text-center mt-12 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 bg-rose-light/30 px-6 py-3 rounded-full">
-            <Heart className="w-5 h-5 text-rose-burnt fill-current" />
-            <span className="text-gray-rose font-medium">
-              Mais de 500 vidas transformadas com amor e cuidado
-            </span>
+        {/* Call to Action */}
+        <div className="text-center animate-on-scroll">
+          <div className="bg-gradient-to-br from-rose-light/20 to-nude-soft/50 rounded-3xl p-8 border border-rose-light/30">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Heart className="w-6 h-6 text-rose-burnt fill-current" />
+              <span className="text-gray-rose font-semibold text-lg">
+                Mais de 500 vidas transformadas com amor e cuidado
+              </span>
+            </div>
+            
+            <p className="text-gray-rose/80 mb-6 max-w-2xl mx-auto">
+              Sua transformação pode ser a próxima! Descubra como a nutrição consciente 
+              pode revolucionar sua relação com a comida e com seu corpo.
+            </p>
+            
+            <a 
+              href="https://wa.me/5513996631392"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-rose-burnt text-white px-8 py-4 rounded-full font-semibold hover-lift shadow-lg hover:bg-rose-burnt/90 transition-all"
+              aria-label="Iniciar minha transformação via WhatsApp"
+            >
+              Quero iniciar minha transformação
+              <ArrowRight className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>

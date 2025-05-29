@@ -48,7 +48,7 @@ const Testimonials = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
             O que minhas pacientes dizem
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-green-leaf rounded-full mx-auto mb-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-rose-dark rounded-full mx-auto mb-4"></div>
           <p className="text-lg text-gray-rose/80 max-w-2xl mx-auto">
             Histórias reais de transformação e empoderamento feminino
           </p>
@@ -77,8 +77,9 @@ const Testimonials = () => {
               <div className="flex items-center gap-4">
                 <img 
                   src={testimonial.image}
-                  alt={testimonial.name}
+                  alt={`Foto de ${testimonial.name}, paciente satisfeita`}
                   className="w-12 h-12 rounded-full object-cover border-2 border-rose-light/50"
+                  loading="lazy"
                 />
                 <div>
                   <p className="font-semibold text-gray-rose">
