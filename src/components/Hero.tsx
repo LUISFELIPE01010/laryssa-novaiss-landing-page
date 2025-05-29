@@ -40,11 +40,11 @@ const Hero = () => {
             
             <a 
               href="tel:+5513996631392"
-              className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-rose-dark text-rose-dark px-8 py-4 rounded-full font-semibold text-lg hover-lift hover:bg-rose-dark hover:text-white transition-all"
+              className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-rose-dark text-rose-dark px-8 py-4 rounded-full font-semibold text-lg hover-lift hover:bg-rose-dark hover:text-white transition-all whitespace-nowrap"
               aria-label="Ligar para Laryssa Novais"
             >
-              <Phone className="w-6 h-6" />
-              (13) 99663-1392
+              <Phone className="w-6 h-6 flex-shrink-0" />
+              <span className="whitespace-nowrap">(13) 99663-1392</span>
             </a>
           </div>
         </div>

@@ -1,34 +1,47 @@
 
-import { Target, Dumbbell, Heart, Utensils, Video, MessageCircle } from 'lucide-react';
+import { Target, Dumbbell, Heart, Utensils, Video, Brain } from 'lucide-react';
+import { useState } from 'react';
+import ServiceModal from './ServiceModal';
 
 const Services = () => {
-  const whatsappUrl = "https://wa.me/5513996631392";
+  const [selectedService, setSelectedService] = useState<number | null>(null);
   
   const services = [
     {
       icon: Target,
       title: "Emagrecimento saudável e consciente",
-      description: "Perca peso de forma sustentável, sem dietas restritivas ou sofrimento."
+      description: "Perca peso de forma sustentável, sem dietas restritivas ou sofrimento.",
+      modalContent: "Com meu método de emagrecimento consciente, você vai aprender a perder peso de forma natural e duradoura. Sem dietas malucas, sem passar fome e sem culpa. Trabalho com estratégias personalizadas que respeitam seu corpo, sua rotina e suas preferências alimentares. O resultado? Uma transformação que vai muito além da balança - você vai se sentir mais disposta, confiante e em paz com a comida."
     },
     {
       icon: Dumbbell,
       title: "Ganho de massa magra",
-      description: "Estratégias nutricionais para fortalecer e tonificar seu corpo de forma natural."
+      description: "Estratégias nutricionais para fortalecer e tonificar seu corpo de forma natural.",
+      modalContent: "Quer ganhar músculo e definir seu corpo? Vou te ensinar exatamente como fazer isso através da alimentação. Com planejamento nutricional específico para hipertrofia, você vai otimizar seus treinos e acelerar os resultados. Trabalho com protocolos personalizados que consideram seu biotipo, rotina de exercícios e preferências alimentares. O resultado será um corpo mais forte, definido e saudável."
     },
     {
       icon: Heart,
       title: "Nutrição para mulheres com SOP, ansiedade ou TPM",
-      description: "Cuidado especializado para questões hormonais e emocionais femininas."
+      description: "Cuidado especializado para questões hormonais e emocionais femininas.",
+      modalContent: "Entendo profundamente os desafios que a SOP, ansiedade e TPM trazem para a vida da mulher. Por isso, desenvolvo estratégias nutricionais específicas para equilibrar seus hormônios e melhorar seu bem-estar emocional. Através de uma alimentação anti-inflamatória e suplementação direcionada, você vai perceber redução dos sintomas, melhora do humor e mais qualidade de vida. Cuidamos de você como um todo, não apenas dos sintomas."
     },
     {
       icon: Utensils,
       title: "Reeducação alimentar para a vida real",
-      description: "Aprenda a comer bem dentro da sua rotina, sem complicações."
+      description: "Aprenda a comer bem dentro da sua rotina, sem complicações.",
+      modalContent: "Chega de regras complicadas e cardápios impossíveis de seguir! Minha reeducação alimentar é prática e feita para a vida real. Você vai aprender a fazer escolhas inteligentes em qualquer situação - no trabalho, em casa, no restaurante ou na casa da sogra. Ensino estratégias simples que se encaixam na sua rotina e te dão liberdade para viver sem neurose com a comida."
     },
     {
       icon: Video,
       title: "Consultas online ou presenciais",
-      description: "Flexibilidade total para caber na sua agenda e localização."
+      description: "Flexibilidade total para caber na sua agenda e localização.",
+      modalContent: "Sua localização não pode ser um impeditivo para cuidar da sua saúde. Por isso ofereço atendimento 100% online para todo o Brasil, com a mesma qualidade e cuidado do presencial. Através de uma plataforma completa, você terá acesso a consultas, materiais educativos e acompanhamento personalizado. Se você está na região de Santos/Praia Grande, também atendo presencialmente em consultório acolhedor e moderno."
+    },
+    {
+      icon: Brain,
+      title: "Nutrição comportamental e mindful eating",
+      description: "Transforme sua relação com a comida através da consciência alimentar.",
+      modalContent: "Mais do que saber o que comer, é importante entender COMO e PORQUÊ comemos. Através da nutrição comportamental e técnicas de mindful eating, você vai desenvolver uma relação mais consciente e prazerosa com a alimentação. Vamos trabalhar questões como compulsão alimentar, comer emocional e ansiedade relacionada à comida. O resultado é uma transformação profunda que vai além da dieta - é uma nova forma de se relacionar com o alimento e com seu corpo."
     }
   ];
 
@@ -61,19 +74,26 @@ const Services = () => {
                 {service.description}
               </p>
               
-              <a 
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button 
+                onClick={() => setSelectedService(index)}
                 className="inline-flex items-center gap-2 text-rose-dark font-semibold hover:text-rose-dark/80 transition-colors"
-                aria-label={`Agendar consulta para ${service.title}`}
+                aria-label={`Saber mais sobre ${service.title}`}
               >
-                <MessageCircle className="w-5 h-5" />
-                Agende sua consulta agora
-              </a>
+                Quero saber mais
+              </button>
             </div>
           ))}
         </div>
+
+        {/* Modal */}
+        {selectedService !== null && (
+          <ServiceModal
+            isOpen={selectedService !== null}
+            onClose={() => setSelectedService(null)}
+            title={services[selectedService].title}
+            content={services[selectedService].modalContent}
+          />
+        )}
       </div>
     </section>
   );

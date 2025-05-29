@@ -1,8 +1,12 @@
+
 import { MessageCircle, Instagram, MapPin, Clock, Phone, Heart } from 'lucide-react';
+
 const Contact = () => {
   const whatsappUrl = "https://wa.me/5513996631392";
   const instagramUrl = "https://instagram.com/laryssanutri";
-  return <section className="py-20 bg-gradient-to-br from-rose-light/20 to-rose-accent/10">
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-rose-light/20 to-rose-accent/10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
@@ -75,7 +79,7 @@ const Contact = () => {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-rose-burnt rounded-full mt-2"></div>
                   <p className="text-gray-rose">
-                    <strong>Presencial:</strong> Baixada Santista - SP
+                    <strong>Presencial:</strong> Santos, Praia Grande, SP
                   </p>
                 </div>
                 
@@ -118,6 +122,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;
