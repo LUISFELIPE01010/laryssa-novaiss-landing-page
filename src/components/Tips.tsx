@@ -13,7 +13,7 @@ const Tips = () => {
       icon: Smile,
       title: "Dicas para manter a disciplina com leveza",
       description: "Foque no progresso, não na perfeição. Pequenos passos consistentes geram grandes resultados.",
-      color: "from-green-leaf/20 to-green-leaf/10"
+      color: "from-rose-accent to-rose-light/30"
     },
     {
       icon: Clock,
@@ -25,7 +25,7 @@ const Tips = () => {
       icon: Droplets,
       title: "Hidratação: o poder da água",
       description: "Beba pelo menos 35ml por kg de peso corporal. Adicione limão ou hortelã para variar.",
-      color: "from-green-leaf/30 to-rose-burnt/10"
+      color: "from-rose-accent to-rose-burnt/10"
     }
   ];
 
@@ -33,10 +33,10 @@ const Tips = () => {
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
             Dicas da Nutri
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-green-leaf rounded-full mx-auto mb-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-rose-dark rounded-full mx-auto mb-4"></div>
           <p className="text-lg text-gray-rose/80 max-w-2xl mx-auto">
             Pequenas mudanças que fazem toda a diferença no seu dia a dia
           </p>
@@ -52,8 +52,8 @@ const Tips = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${tip.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-rose-light to-green-leaf/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <tip.icon className="w-8 h-8 text-rose-burnt" />
+                <div className="w-16 h-16 bg-gradient-to-br from-rose-light to-rose-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <tip.icon className="w-8 h-8 text-rose-dark" />
                 </div>
                 
                 <h3 className="text-xl font-semibold text-gray-rose mb-4">

@@ -63,12 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for the nutritionist theme
+				// Updated color palette - removed green colors
 				'rose-light': '#FADADD',
 				'nude-soft': '#FFEFF0',
-				'gray-rose': '#6D6D6D',
-				'rose-burnt': '#DFA9A3',
-				'green-leaf': '#A8D5BA'
+				'gray-rose': '#4A4A4A', // Darker for better contrast
+				'rose-burnt': '#B8817A', // Adjusted for better contrast
+				'rose-dark': '#8B5A5A', // New darker rose for high contrast elements
+				'rose-accent': '#E8B5B5' // New lighter rose for accents
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

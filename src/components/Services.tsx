@@ -36,10 +36,10 @@ const Services = () => {
     <section className="py-20 bg-gradient-to-b from-nude-soft to-white">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
             Como posso te ajudar?
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-green-leaf rounded-full mx-auto"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-rose-burnt to-rose-dark rounded-full mx-auto"></div>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -49,8 +49,8 @@ const Services = () => {
               className="bg-white rounded-3xl p-8 shadow-lg hover-lift animate-on-scroll border border-rose-light/20"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-rose-light to-green-leaf/30 rounded-2xl flex items-center justify-center mb-6">
-                <service.icon className="w-8 h-8 text-rose-burnt" />
+              <div className="w-16 h-16 bg-gradient-to-br from-rose-light to-rose-accent rounded-2xl flex items-center justify-center mb-6">
+                <service.icon className="w-8 h-8 text-rose-dark" />
               </div>
               
               <h3 className="text-xl font-semibold text-gray-rose mb-4">
@@ -65,7 +65,8 @@ const Services = () => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-green-leaf font-semibold hover:text-green-leaf/80 transition-colors"
+                className="inline-flex items-center gap-2 text-rose-dark font-semibold hover:text-rose-dark/80 transition-colors"
+                aria-label={`Agendar consulta para ${service.title}`}
               >
                 <MessageCircle className="w-5 h-5" />
                 Agende sua consulta agora

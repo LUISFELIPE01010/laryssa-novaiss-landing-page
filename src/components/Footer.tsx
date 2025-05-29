@@ -40,6 +40,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors"
+                aria-label="Contato via WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
                 (13) 99663-1392
@@ -50,6 +51,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors"
+                aria-label="Seguir no Instagram"
               >
                 <Instagram className="w-5 h-5" />
                 @laryssanutri
