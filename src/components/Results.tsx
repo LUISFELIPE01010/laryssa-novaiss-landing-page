@@ -11,31 +11,31 @@ import {
 const Results = () => {
   const beforeAfterImages = [
     {
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher saudável e confiante mostrando resultados de emagrecimento",
       title: "Transformação Real",
       description: "12kg perdidos em 6 meses"
     },
     {
-      image: "https://images.unsplash.com/photo-1594736797933-d0c4a7d0daa3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", 
+      image: "https://images.unsplash.com/photo-1594736797933-d0c4a7d0daa3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80", 
       alt: "Mulher forte e definida mostrando ganho de massa magra",
       title: "Corpo Forte e Definido",
       description: "5kg de massa magra conquistados"
     },
     {
-      image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1506629905607-c28b29b5f7d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher radiante e energética após transformação nutricional",
       title: "Energia e Vitalidade",
       description: "Disposição e bem-estar recuperados"
     },
     {
-      image: "https://images.unsplash.com/photo-1506629905607-c28b29b5f7d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher feliz e confiante após processo de reeducação alimentar",
       title: "Autoestima Renovada",
       description: "Relação saudável com a comida"
     },
     {
-      image: "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher ativa e saudável praticando exercícios",
       title: "Vida Ativa",
       description: "Força e resistência conquistadas"
