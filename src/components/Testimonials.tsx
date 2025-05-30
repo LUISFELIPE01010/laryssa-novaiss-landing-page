@@ -24,7 +24,7 @@ const Testimonials = () => {
       quote: "Pensava que nunca conseguiria ganhar massa magra sendo vegetariana. A Laryssa me provou o contrário com um plano perfeito para mim!",
       name: "Patrícia",
       age: "29 anos",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+      image: "/lovable-uploads/664513b9-6638-4e15-a37f-a7e3a043e268.png"
     },
     {
       quote: "A consulta com a Laryssa foi transformadora. Ela realmente escuta e cria um plano que funciona na vida real, não só na teoria.",
