@@ -14,49 +14,41 @@ const Results = () => {
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher saudável e confiante mostrando resultados de emagrecimento",
       title: "Transformação Real",
-      description: "12kg perdidos em 6 meses"
+      description: "12kg perdidos em 6 meses",
+      name: "Maria, 32 anos",
+      feedback: "Me sinto mais leve, confiante e com energia. Aprendi que é possível emagrecer com saúde!"
     },
     {
       image: "https://images.unsplash.com/photo-1594736797933-d0c4a7d0daa3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80", 
       alt: "Mulher forte e definida mostrando ganho de massa magra",
       title: "Corpo Forte e Definido",
-      description: "5kg de massa magra conquistados"
+      description: "5kg de massa magra conquistados",
+      name: "Ana, 28 anos",
+      feedback: "Ganhei músculos e disposição. Finalmente entendi como me alimentar para ter o corpo que sempre quis."
     },
     {
       image: "https://images.unsplash.com/photo-1506629905607-c28b29b5f7d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher radiante e energética após transformação nutricional",
       title: "Energia e Vitalidade",
-      description: "Disposição e bem-estar recuperados"
+      description: "Disposição e bem-estar recuperados",
+      name: "Carla, 35 anos",
+      feedback: "Minha energia voltou! Acordo disposta e me sinto revigorada todos os dias."
     },
     {
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher feliz e confiante após processo de reeducação alimentar",
       title: "Autoestima Renovada",
-      description: "Relação saudável com a comida"
+      description: "Relação saudável com a comida",
+      name: "Juliana, 29 anos",
+      feedback: "Aprendi a me alimentar sem medo, sem culpa. Minha relação com a comida mudou completamente."
     },
     {
       image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       alt: "Mulher ativa e saudável praticando exercícios",
       title: "Vida Ativa",
-      description: "Força e resistência conquistadas"
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "Me sinto mais leve, confiante e com energia.",
-      name: "Maria, 32 anos",
-      result: "12kg em 6 meses"
-    },
-    {
-      quote: "Aprendi a me alimentar sem medo, sem culpa.",
-      name: "Ana, 28 anos",
-      result: "Ganhou 5kg de massa magra"
-    },
-    {
-      quote: "Finalmente entendi que saúde não é sinônimo de restrição.",
-      name: "Carla, 35 anos", 
-      result: "Melhorou energia e disposição"
+      description: "Força e resistência conquistadas",
+      name: "Fernanda, 31 anos",
+      feedback: "Consegui ganhar força e resistência. Hoje me sinto uma pessoa completamente nova e ativa."
     }
   ];
 
@@ -97,9 +89,24 @@ const Results = () => {
                     <h3 className="text-xl font-semibold text-gray-rose mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-rose-burnt font-medium">
+                    <p className="text-rose-burnt font-medium mb-3">
                       {item.description}
                     </p>
+                    
+                    {/* Nome e Feedback */}
+                    <div className="border-t border-rose-light/30 pt-4">
+                      <div className="flex justify-center mb-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-rose-burnt fill-current" />
+                        ))}
+                      </div>
+                      <blockquote className="text-gray-rose/80 italic text-sm mb-2 leading-relaxed">
+                        "{item.feedback}"
+                      </blockquote>
+                      <p className="font-semibold text-gray-rose text-sm">
+                        {item.name}
+                      </p>
+                    </div>
                   </div>
                 </CarouselItem>
               ))}
@@ -107,36 +114,6 @@ const Results = () => {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </div>
-
-        {/* Depoimentos em Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-3xl p-8 shadow-lg hover-lift animate-on-scroll text-center border border-rose-light/20"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="flex justify-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-rose-burnt fill-current" />
-                ))}
-              </div>
-              
-              <blockquote className="text-gray-rose italic mb-4 text-lg">
-                "{testimonial.quote}"
-              </blockquote>
-              
-              <div className="border-t border-rose-light/30 pt-4">
-                <p className="font-semibold text-gray-rose mb-1">
-                  {testimonial.name}
-                </p>
-                <p className="text-sm text-rose-burnt font-medium">
-                  {testimonial.result}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
         
         {/* Call to Action */}
