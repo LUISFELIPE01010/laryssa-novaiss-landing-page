@@ -1,4 +1,3 @@
-
 import { Star, Quote } from 'lucide-react';
 
 const Testimonials = () => {
@@ -7,7 +6,7 @@ const Testimonials = () => {
       quote: "A Laryssa mudou minha forma de ver a alimentação. Ela é humana, acessível e maravilhosa. Finalmente consegui emagrecer sem sofrimento!",
       name: "Camila",
       age: "28 anos",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b2e936f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+      image: "/lovable-uploads/68e54351-155a-4d01-ae41-61d0c1c4b649.png"
     },
     {
       quote: "Depois do acompanhamento com a Laryssa, me senti empoderada e finalmente em paz com meu corpo. Ela entende as dificuldades da mulher moderna.",
