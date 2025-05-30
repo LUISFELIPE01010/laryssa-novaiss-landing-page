@@ -1,11 +1,12 @@
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { CheckCircle, ArrowRight, MessageCircle } from 'lucide-react';
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [showResult, setShowResult] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const questions = [
     {
@@ -37,18 +38,24 @@ const Quiz = () => {
     }
   ];
 
-  const handleAnswer = (answer: string) => {
+  const handleAnswer = useCallback((answer: string) => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
     const newAnswers = [...answers, answer];
     setAnswers(newAnswers);
 
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setShowResult(true);
-    }
-  };
+    setTimeout(() => {
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        setShowResult(true);
+      }
+      setIsTransitioning(false);
+    }, 150);
+  }, [answers, currentQuestion, questions.length, isTransitioning]);
 
-  const getResult = () => {
+  const getResult = useCallback(() => {
     const weightLossKeywords = ['perder peso', 'controlar', 'culpada'];
     const muscleGainKeywords = ['massa muscular', 'comer melhor'];
     const wellnessKeywords = ['energia', 'disposição', 'ansiedade', 'tempo'];
@@ -71,20 +78,26 @@ const Quiz = () => {
         description: "Você se beneficiaria de um acompanhamento holístico, focado em energia, disposição e uma relação saudável com a comida."
       };
     }
-  };
+  }, [answers]);
 
-  const resetQuiz = () => {
-    setCurrentQuestion(0);
-    setAnswers([]);
-    setShowResult(false);
-  };
+  const resetQuiz = useCallback(() => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentQuestion(0);
+      setAnswers([]);
+      setShowResult(false);
+      setIsTransitioning(false);
+    }, 100);
+  }, [isTransitioning]);
 
   if (showResult) {
     const result = getResult();
     return (
       <section className="py-20 bg-gradient-to-br from-rose-light/30 to-rose-accent/20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl animate-scale-in">
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
             <div className="mb-8">
               <CheckCircle className="w-20 h-20 text-rose-dark mx-auto mb-6" />
               <h3 className="text-2xl md:text-3xl font-bold text-gray-rose mb-4">
@@ -110,7 +123,8 @@ const Quiz = () => {
               <div>
                 <button 
                   onClick={resetQuiz}
-                  className="text-rose-dark hover:text-rose-dark/80 transition-colors"
+                  disabled={isTransitioning}
+                  className="text-rose-dark hover:text-rose-dark/80 transition-colors disabled:opacity-50"
                   aria-label="Refazer quiz nutricional"
                 >
                   Refazer o quiz
@@ -126,7 +140,7 @@ const Quiz = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-rose-light/30 to-rose-accent/20">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-12 animate-on-scroll">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-rose mb-6">
             Descubra seu caminho ideal
           </h2>
@@ -136,7 +150,7 @@ const Quiz = () => {
           </p>
         </div>
         
-        <div className="bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl animate-on-scroll">
+        <div className="bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl">
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between text-sm text-gray-rose/60 mb-2">
@@ -145,7 +159,7 @@ const Quiz = () => {
             </div>
             <div className="w-full bg-rose-light/30 rounded-full h-2">
               <div 
-                className="bg-gradient-to-r from-rose-burnt to-rose-dark h-2 rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-rose-burnt to-rose-dark h-2 rounded-full transition-all duration-300"
                 style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
               ></div>
             </div>
@@ -159,9 +173,10 @@ const Quiz = () => {
             <div className="space-y-4">
               {questions[currentQuestion].options.map((option, index) => (
                 <button
-                  key={index}
+                  key={`${currentQuestion}-${index}`}
                   onClick={() => handleAnswer(option)}
-                  className="w-full text-left p-6 rounded-2xl border-2 border-rose-light/30 hover:border-rose-dark/50 hover:bg-rose-light/20 transition-all duration-300 group"
+                  disabled={isTransitioning}
+                  className="w-full text-left p-6 rounded-2xl border-2 border-rose-light/30 hover:border-rose-dark/50 hover:bg-rose-light/20 transition-all duration-200 group disabled:opacity-50 disabled:cursor-not-allowed"
                   aria-label={`Selecionar opção: ${option}`}
                 >
                   <div className="flex items-center justify-between">

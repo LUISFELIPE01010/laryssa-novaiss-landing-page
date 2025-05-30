@@ -86,7 +86,7 @@ const Results = () => {
                       <img 
                         src={item.image}
                         alt={item.alt}
-                        className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                        className="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-300 hover:scale-105"
                         loading="lazy"
                       />
                       <div className="absolute top-4 right-4 w-10 h-10 bg-rose-burnt rounded-full flex items-center justify-center">
